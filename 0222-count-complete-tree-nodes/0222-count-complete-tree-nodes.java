@@ -14,23 +14,10 @@
  * }
  */
 class Solution {
+
     public int countNodes(TreeNode root) {
-        if(root == null) {
+        if (root == null) 
             return 0;
-        }
-        int count = 0;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while(q.isEmpty() == false) {
-            TreeNode cur = q.poll();
-            count++;
-            if(cur.left != null) {
-                q.add(cur.left);
-            }
-            if(cur.right != null) {
-                q.add(cur.right);
-            }
-        }  
-        return count;
+        return 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
