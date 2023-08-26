@@ -13,11 +13,11 @@ class Solution {
             }
             productOfArray *= nums[i];
         }
-        if (zeroCount > 1) {
+        if (zeroCount > 1 || zeroCount == 1) {
             Arrays.fill(nums, 0);
-        } else if (zeroCount == 1) {
-            Arrays.fill(nums, 0);
-            nums[zeroLoc] = productOfArray;
+            if (zeroCount == 1) {
+                nums[zeroLoc] = productOfArray;
+            }
         } else {
             for (int i = 0; i < nums.length; i++) {
                 nums[i] = productOfArray / nums[i];
